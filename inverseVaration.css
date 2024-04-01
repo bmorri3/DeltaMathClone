@@ -1,0 +1,106 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap'); */
+
+
+*, *::before, *::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+span#problem{
+  font-family: georgia, serif, Symbola;
+}
+#container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 60%;
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.6);
+  border-radius: 3px;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.1);
+  height: 460px;
+  border: 1px solid rgb(222, 221, 221);
+}
+#sub-container{
+  position: absolute;
+  top: 75%;
+  bottom: 5%;
+  background: #f4f4f4;
+  border: 0.5px solid #dbdbdb;
+  left: 4%;
+  right: 4%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 5%;
+}
+#getProblem{
+  color: #fff;
+  background-color: #324658;
+  border: 1px solid #2c3e50;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 3px;
+  transition: 0.1s;
+  margin-left: 7px;
+}
+#getProblem:hover{
+  background-color: #101a23;
+}
+#input{
+  width: 60px;
+  height: 30px;
+  cursor: pointer;
+  transform: scale(1.2);
+  margin: 5px;
+  outline: none;
+  border-radius: 2px;
+  border: 0.5px solid rgb(143,143,143);
+}
+input:focus{
+  box-shadow: 0 0 5px rgb(30,130,212);
+}
+span.parenthesis, #comma{
+  font-size: 40px;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+}
+#problem{
+  font-size:1.4rem;
+}
+#webpage-header{
+  width:100vw;
+  background: #2c3e50;
+  position: absolute;
+  top: 0;
+  bottom: 90%;
+  color: white;
+  border-radius: 5px;
+  font-family: 'Comic Neue', Helvetica, sans-serif;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 1%;
+  font-family: 'Open sans', sans-serif;
+}
+#question-mark{
+  position: absolute;
+  top: 12%;
+  font-size: 60px;
+  color: #263849;
+  left: 190%;
+}
+#header{
+  position: absolute;
+  top: 7%;
+  left: 3%;
+}
+#header span{
+  font-size: 21px;
+  font-family:'Seqoe UI', Tahoma, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
