@@ -14,20 +14,36 @@
 
   <body>
     <div id='webpage-header'>
-      <span id=deltamath_logo><i class = 'fa fa-graduation-cap' aria-hidden='true'></i><b>Delta</b>Math</span>
+      <span id='deltamath_logo' style='font-size: 1.4em'><i class='fa fa-graduation-cap' aria-hidden='true'></i><b>Delta</b>Math</span>
+    </div>
+    <div id = 'button-container'>
+      <button class = "white-button">< Back </button>
+      <div id = 'dark-blues'>
+        <button class = "blue-button">New Problem</button>
+        <button class = "blue-button">Solution</button>
+      </div>
     </div>
 
     <div id='container'>
-      <div id='header'>
-        <span id='name' style='font-family: "Comic Neue", sans-serif;'>Tutorial by Coding With Kenny</span>
+      <div id='problem-header'>
+        <span id='name' style='font-family: "Comic Neue", sans-serif;'>Ben Morris</span>
         <br>
-        <span id='assignment_name' style='font-family: "Comic Neue", sans-serif;'>Inverse Variation (alternate)</span>
-        <i class='fa fa-question-circle' id='question-mark' aria-hidden='true'></i>
+        <span id='assignment_name' style='font-family: "Comic Neue", sans-serif;'>Inverse Variation (alternate)</span>       
+        <br>
+        <span id='datetime' style='font-family: "Comic Neue", sans-serif;'></span>
       </div>
       <span id='problem'>Problem will appear here...</span>
+
+      <div id='indicator'>
+        <i class='fa-solid fa-question' id='question-mark' aria-hidden='true'></i>
+      </div>
+
       <div id='sub-container'>
         <span id='solution'>Answer =&nbsp</span>
-        <input id='yInput'>
+        <input id='yInput'>        
+      </div>
+
+      <div id='sub-button'>
         <button id='getProblem'>Get Problem</button>
       </div>
     </div>

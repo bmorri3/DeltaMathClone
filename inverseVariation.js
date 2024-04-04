@@ -3,9 +3,7 @@ let icon = document.getElementById('question-mark');
 
 let problemType = ['numeric', 'verbal'];
 
-let X1 = random();
-let X2 = random();
-let Y1 = random();
+
 
 function random(max=200) {
   return Math.floor(Math.random()*max) + 1;
@@ -20,12 +18,12 @@ function toggleIconIncorrect() {
 }
 
 function correct() {
-  icon.setAttribute('class', 'fa fa-check-circle');
+  icon.setAttribute('class', 'fa-solid fa-check');
   toggleIconCorrect();
 }
 
 function incorrect(){
-  icon.setAttribute('class', 'fa fa-times-circle');
+  icon.setAttribute('class', 'fa-solid fa-xmark');
   toggleIconIncorrect();
 }
 
@@ -40,16 +38,32 @@ function refresh() {
   }, 1500)
 }
 
+function insertDateTime() {
+  const currentDate = new Date();
+  const options = { month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+  const formattedDate = currentDate.toLocaleString('en-US', options);
+  document.getElementById('datetime').textContent = formattedDate;
+}
+
+getProbBtn.addEventListener('click', determineProblemType);
+
+let X1 = random();
+let X2 = random();
+let Y1 = random();
+
 function outputProblem(type) {
   let correctY2;
-  // problem.innerHTML = "HERE";
+
+  // Call insertDateTime function when the page loads
+  insertDateTime();
+
   switch(type) {
     case 'numeric':
-      problem.innerHTML = `X and Y vary inversely. What is the value of Y if ${Y1} when X is ${X1}, what is the value of Y when X is ${X2}?`;
+      problem.innerHTML = `X and Y vary inversely. What is the value of Y if ${Y1} when X is ${X1}, what is the value of Y when X is ${X2}? Round answers to the nearest hundredth.`;
       break;
 
     case 'verbal':
-      problem.innerHTML = `Current and resistance vary inversely. If the resistance is ${Y1} Amps when the current is ${X1} Ohms, what is the current (in Amps) when the current is ${X2} Ohms?`;
+      problem.innerHTML = `Current and resistance vary inversely. If the resistance is ${Y1} Amps when the current is ${X1} Ohms, what is the current (in Amps) when the current is ${X2} Ohms? Round answers to the nearest hundredth.`;
       break;
   }
   
@@ -61,11 +75,9 @@ function outputProblem(type) {
 
     if(inputY2 == correctY2) {
       correct();
-      refresh();
     }
     else {
       incorrect();
-      refresh();
     }
   }
   changeEventListener(checkSolution);
@@ -77,5 +89,3 @@ function determineProblemType() {
   getProbBtn.innerText = 'Submit Answer';
   outputProblem(prob_type);
 }
-
-getProbBtn.addEventListener('click', determineProblemType);
