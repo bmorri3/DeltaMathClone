@@ -54,7 +54,7 @@ solutionBtn.addEventListener('click', showSolution);
 
 // Navigate to skillsPage.html when back button is clicked
 backBtn.addEventListener('click', function() {
-  window.location.href = 'skillsPage.html';
+  window.location.href = '/skillsPage.html';
 });
 
 function outputProblem(type) {
