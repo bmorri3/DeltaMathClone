@@ -1,0 +1,83 @@
+*, *::before, *::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#webpage-header{
+  width:100vw;
+  background: #2c3e50;
+  position: absolute;
+  top: 0;
+  /* bottom: 90%; */
+  height: 65px;
+  width: 100%;
+  color: white;
+  border-radius: 4px;
+  font-family: 'Comic Neue', Helvetica, sans-serif;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 2%;
+  font-family: 'Open sans', sans-serif;
+}
+
+#skills{
+  position: absolute;
+  justify-content: left;
+  flex-direction: column;
+  top: 100px;
+  left: 100px;
+  width: 25%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 5%;
+}
+
+#inverseVariation{
+  
+}
+
+.math2-button{
+  background: green;
+  color: White;
+  padding: 15px 10px;
+  border-radius: 4px;
+  border: 0.5px solid rgb(143,143,143); 
+  width: 150%;
+  margin-bottom: 10px; 
+}
+.math2-button::after {
+  content: "M2";
+  float: right; 
+  margin-left: 5px;
+}
+.math3-button{
+  background: orange;
+  color: White;
+  padding: 15px 10px;
+  border-radius: 4px;
+  border: 0.5px solid rgb(143,143,143);
+  width: 150%;
+  margin-bottom: 10px; 
+}
+.math3-button::after {
+  content: "M3";
+  float: right;
+  margin-left: 5px;
+}
+.precal-button{
+  background: red;
+  color: White;
+  padding: 15px 10px;
+  border-radius: 4px;
+  border: 0.5px solid rgb(143,143,143);
+  width: 150%;
+  margin-bottom: 10px; 
+}
+.precal-button::after {
+  content: "PC";
+  float: right;
+  margin-left: 5px;
+}
