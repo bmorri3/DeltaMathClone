@@ -123,6 +123,15 @@ span#problem{
   transition: 0.1s;
   margin-left: 7px;
 }
+#back:hover{
+  background-color: #e5ecf1;
+}
+#new-problem:hover{
+  background-color: #101a23;
+}
+#solution:hover{
+  background-color: #101a23;
+}
 #getProblem:hover{
   background-color: #101a23;
 }
