@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8'>
+    <meta name=''viewport' content=''width=device-width, initial-scale=1.0'>
+    <title>Skills Menu</title>
+    <link rel='stylesheet' href='skillsMenu.css'>
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap">
+  </head>
+
+<body>
+  <div id='webpage-header'>
+    <span id='deltamath_logo' style='font-size: 1.4em'><i class='fa fa-graduation-cap' aria-hidden='true'></i><b>Delta</b>Math</span>
+  </div>
+  <div id='button-container'>
+    <button id='back' class="white-button">< Back </button>
+    <div id='skills'>
+      <!-- Four identical buttons with different IDs and link destinations -->
+      <button id='inverseVariation' class="math2-button" onclick="goToPage('skills/inverseVariation.html')">Inverse Variation</button>
+      <button id='combinedWorkWordProblems' class="math3-button" onclick="goToPage('skills/combinedWorkWordProblems.html')">Combined Work Word Problems</button>
+      <button id='convertingRectToPolar' class="precal-button" onclick="goToPage('skills/convertingRectToPolar.html')">Converting Rectangular to Polar Equations</button>
+      <button id='convertingPolarToRect' class="precal-button" onclick="goToPage('skills/convertingPolarToRect.html')">Converting Polar to Rectangular Equations</button>
+      <button id='vectorWordProblems' class="precal-button" onclick="goToPage('skills/vectorWordProblems.html')">Vector Word Problems</button>
+    </div>
+  </div>
+     
+  <script src='https://kit.fontawesome.com/7d5b8cf8a9.js' crossorigin='anonymous'></script>
+  <script src='skillsMenu.js' defer></script>
+</body>
+</html>

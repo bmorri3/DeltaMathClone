@@ -52,9 +52,9 @@ getProbBtn.addEventListener('click', determineProblemType);
 newProbBtn.addEventListener('click', determineProblemType);
 solutionBtn.addEventListener('click', showSolution);
 
-// Navigate to skillsPage.html when back button is clicked
+// Navigate to skillsMenu.html when back button is clicked
 backBtn.addEventListener('click', function() {
-  window.location.href = '/skillsPage.html';
+  window.location.href = '/skillsMenu.html';
 });
 
 function outputProblem(type) {
