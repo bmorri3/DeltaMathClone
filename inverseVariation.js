@@ -6,7 +6,7 @@ let icon = document.getElementById('question-mark');
 
 let problemType = ['numeric', 'verbal'];
 
-
+let X1, X2, Y1; 
 
 function random(max=200) {
   return Math.floor(Math.random()*max) + 1;
@@ -50,13 +50,19 @@ function insertDateTime() {
 
 getProbBtn.addEventListener('click', determineProblemType);
 newProbBtn.addEventListener('click', determineProblemType);
+solutionBtn.addEventListener('click', showSolution);
+
+// Navigate to skillsPage.html when back button is clicked
+backBtn.addEventListener('click', function() {
+  window.location.href = 'skillsPage.html';
+});
 
 function outputProblem(type) {
 
-  let X1 = random();
-  let X2 = random();
-  let Y1 = random();
-  
+  X1 = random();
+  X2 = random();
+  Y1 = random();
+
   let correctY2;
 
   // Call insertDateTime function when the page loads
@@ -86,6 +92,10 @@ function outputProblem(type) {
     }
   }
   changeEventListener(checkSolution);
+}
+
+function showSolution(type) {
+  problem.innerHTML = `Show the solution here. ${Y1} when X is ${X1}`;
 }
 
 function determineProblemType() {
