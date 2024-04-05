@@ -1,4 +1,7 @@
 let getProbBtn = document.getElementById('getProblem');
+let backBtn = document.getElementById('back');
+let newProbBtn = document.getElementById('new-problem');
+let solutionBtn = document.getElementById('solution');
 let icon = document.getElementById('question-mark');
 
 let problemType = ['numeric', 'verbal'];
@@ -46,12 +49,14 @@ function insertDateTime() {
 }
 
 getProbBtn.addEventListener('click', determineProblemType);
-
-let X1 = random();
-let X2 = random();
-let Y1 = random();
+newProbBtn.addEventListener('click', determineProblemType);
 
 function outputProblem(type) {
+
+  let X1 = random();
+  let X2 = random();
+  let Y1 = random();
+  
   let correctY2;
 
   // Call insertDateTime function when the page loads
