@@ -58,7 +58,7 @@ function outputProblem(type) {
       break;
 
     case 'verbal':
-      problemString = `Current and resistance vary inversely. If the resistance is ${Y1} Amps when the current is ${X1} Ohms, what is the current (in Amps) when the current is ${X2} Ohms? Round answers to the nearest hundredth.`;
+      problemString = `Current and resistance vary inversely. If the resistance is ${Y1} Amps when the current is ${X1} Ohms, what is the current (in Amps) when the resistance is ${X2} Ohms? Round answers to the nearest hundredth.`;
       break;
   }
 
@@ -113,7 +113,7 @@ function adjustContainerHeight() {
   let textElement = document.getElementById('problem');
   console.log(`textElement.scrollHeight: ${textElement.scrollHeight}`)
   // Get the computed height of the problem element
-  let textHeight = textElement.scrollHeight + 300;
+  let textHeight = textElement.scrollHeight + 350;
 
   // Set the height of the textContainer to the computed height of the problem element
   textContainer.style.height = `${textHeight}px`;

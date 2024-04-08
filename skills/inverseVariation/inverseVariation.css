@@ -51,7 +51,7 @@ span#problem{
 }
 #question-mark{
   position: relative;
-  top: 120px;
+  top: -140px;
   right: 0px;
   font-size: 60px;
   color: #263849;
@@ -68,27 +68,27 @@ span#problem{
 }
 
 /* Media query for smaller screens */
-@media (max-width: 2000px) {
+@media (max-width: 6000px) {
   #buttonContainer {
-    width: calc(70vw - 40px);
-    top: 75px;
-    left: 10%;
+    width: calc(60vw - 30px);
+    top: 95px;
+    left: 12%;
   }
   #textContainer {
-    width: calc(70vw - 40px);
-    top: 130px;
-    left: 10%;
+    width: calc(60vw - 40px);
+    top: 140px;
+    left: 12%;
   }
   #yInput {
     width: calc(20vw);
   }
   #answerButton {
-    left: calc(20vw + 90px);
+    left: calc(20vw + 110px);
   }
 }
 #answer-container{
   position: absolute;
-  top: 75%;
+  top: 70%;
   bottom: 5%;
   background: #f4f4f4;
   border: 2px solid #dbdbdb85;
@@ -101,9 +101,8 @@ span#problem{
 }
 #answerButton{
   position: absolute;
-  top: 75%;
+  top: 70%;
   bottom: 5%;
-  /* left: 20px; */
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -155,7 +154,7 @@ span.parenthesis, #comma{
 }
 #indicator{
   position: absolute;
-  bottom: 110%;
+  top: 160px;
   left: 90%;
 }
 #header span{
