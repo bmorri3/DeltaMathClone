@@ -12,23 +12,23 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap">
   </head>
 
+
 <body>
   <div id='webpage-header'>
-    <span id='deltamath_logo' style='font-size: 1.4em'><i class='fa fa-graduation-cap' aria-hidden='true'></i><b>Delta</b>Math</span>
+    <span id='deltamath_logo' style='font-size: 1.4em'><i class='fa fa-graduation-cap' aria-hidden='true'></i><b>Delta</b>Math<i>Clone</i></span>
   </div>
   <div id='button-container'>
-    <button id='back' class="white-button">< Back </button>
-    <div id='skills'>
-      <!-- Four identical buttons with different IDs and link destinations -->
+    <button id='back' class="white-button">< Back</button>
+    <div id='skills' style='display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;'>
       <button id='inverseVariation' class="math2-button" onclick="goToPage('skills/inverseVariation.html')">Inverse Variation</button>
-      <button id='combinedWorkWordProblems' class="math3-button" onclick="goToPage('skills/combinedWorkWordProblems.html')">Combined Work Word Problems</button>
-      <button id='convertingRectToPolar' class="precal-button" onclick="goToPage('skills/convertingRectToPolar.html')">Converting Rectangular to Polar Equations</button>
-      <button id='convertingPolarToRect' class="precal-button" onclick="goToPage('skills/convertingPolarToRect.html')">Converting Polar to Rectangular Equations</button>
-      <button id='vectorWordProblems' class="precal-button" onclick="goToPage('skills/vectorWordProblems.html')">Vector Word Problems</button>
+      <button id='quadraticFormula1' class="math2-button" onclick="goToPage('skills/quadraticFormula.html')">Quadratic Formula (Level 1)</button>
+      <button id='quadraticFormula2' class="math2-button" onclick="goToPage('skills/quadraticFormula.html')">Quadratic Formula (Level 2)</button>
+      <button id='quadraticFormula3' class="math2-button" onclick="goToPage('skills/quadraticFormula.html')">Quadratic Formula (Level 3)</button>
     </div>
   </div>
-     
+
   <script src='https://kit.fontawesome.com/7d5b8cf8a9.js' crossorigin='anonymous'></script>
   <script src='skillsMenu.js' defer></script>
 </body>
+
 </html>

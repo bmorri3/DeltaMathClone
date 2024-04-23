@@ -1,11 +1,15 @@
+/* skillStyles.css */
+
 *, *::before, *::after{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 span#problem{
   font-family: georgia, serif, Symbola;
 }
+
 #webpage-header{
   width:100vw;
   background: #2c3e50;
@@ -22,16 +26,19 @@ span#problem{
   padding-left: 2%;
   font-family: 'Open sans', sans-serif;
 }
+
 #buttonContainer {
   display: flex;
   position: absolute;
 }
+
 .white-button{
   background: white;
   padding: 8px 7px;
   border-radius: 4px;
   border: 0.5px solid rgb(143,143,143);
 }
+
 .blue-button{
   background: #2c3e50;
   color: White;
@@ -40,15 +47,23 @@ span#problem{
   border: 0.5px solid rgb(143,143,143);
   margin: 0px 0px 0px 10px;
 }
+
+.bracket{
+  font-size: 24px
+}
+
 #back:hover{
   background-color: #e5ecf1;
 }
+
 #new-problem:hover{
   background-color: #101a23;
 }
+
 #solution:hover{
   background-color: #101a23;
 }
+
 #question-mark{
   position: relative;
   top: -140px;
@@ -56,12 +71,13 @@ span#problem{
   font-size: 60px;
   color: #263849;
 }
+
 #textContainer {
-  justify-content: center;
   align-items: center;
   box-shadow: 0 7px 20px rgba(0, 0, 0, 0.6);
   border-radius: 3px;
   position: absolute;
+  height: 1000px;
   top: 130px;
   left: 200px;
   border: 1px solid rgb(222, 221, 221);
@@ -79,13 +95,14 @@ span#problem{
     top: 140px;
     left: 12%;
   }
-  #yInput {
+  #input {
     width: calc(20vw);
   }
   #answerButton {
     left: calc(20vw + 110px);
   }
 }
+
 #answer-container{
   position: absolute;
   top: 70%;
@@ -99,6 +116,7 @@ span#problem{
   align-items: center;
   padding-left: 5%;
 }
+
 #answerButton{
   position: absolute;
   top: 70%;
@@ -108,6 +126,78 @@ span#problem{
   align-items: center;
   padding-left: 5%;
 }
+
+#input{
+  height: 40px;
+  cursor: text;
+  border-radius: 2px;
+  border: 0.5px solid rgb(143,143,143);
+  padding-left: 10px;
+}
+
+#solution1{
+  height: 40px;
+  width: 80px;
+  cursor: text;
+  border-radius: 2px;
+  border: 0.5px solid rgb(143,143,143);
+  padding-left: 10px;
+}
+
+#solution2{
+  height: 40px;
+  width: 80px;
+  cursor: text;
+  border-radius: 2px;
+  border: 0.5px solid rgb(143,143,143);
+  padding-left: 10px;
+}
+
+#solutionContainer{
+  position: absolute;
+  top: 70%;
+  bottom: 5%;
+  left: 4%;
+  right: 4%;
+  width: 75%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 5%;
+}
+
+.divider {
+  border-top: 1px solid #02020285;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.centered-content {
+  text-align: center;
+}
+
+#rendered-latex {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.latex-input {
+  font-size: 20px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 4px;
+  width: 300px;
+  min-height: 20px;
+  margin-bottom: 10px;
+}
+
 #getProblem{
   color: #fff;
   background-color: #2c3e50;
@@ -122,41 +212,40 @@ span#problem{
 #getProblem:hover{
   background-color: #101a23;
 }
-#yInput{
-  height: 40px;
-  cursor: text;
-  border-radius: 2px;
-  border: 0.5px solid rgb(143,143,143);
-}
+
+
 input:focus{
   box-shadow: 0 0 5px rgb(30,130,212);
 }
+
 span.parenthesis, #comma{
   font-size: 40px;
   font-weight: 500;
   font-family: 'Montserrat', sans-serif;
 }
+
 #problem-header{
   position: absolute;
   top: 5%;
   left: 3%;
   width: 75%;
 }
+
 #problem{
   font-size:1.2rem;
   position: absolute;
-  top: 1000;
-  position: absolute;
-  top: 40%;
+  top: 100px;
   left: 50%;
   width: 75%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%);
 }
+
 #indicator{
   position: absolute;
   top: 160px;
-  left: 90%;
+  left: 85%;
 }
+
 #header span{
   font-size: 21px;
   font-family:'Seqoe UI', Tahoma, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

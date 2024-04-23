@@ -1,10 +1,12 @@
+import { title, assignmentName, problemTypes, problemTemplates, solutionTemplate } from './problemData.js';
+
 let getProbBtn = document.getElementById('getProblem');
 let backBtn = document.getElementById('back');
 let newProbBtn = document.getElementById('new-problem');
 let solutionBtn = document.getElementById('solution');
 let icon = document.getElementById('question-mark');
-
-let problemType = ['numeric', 'verbal'];
+document.getElementById('assignment_name').textContent = assignmentName;
+document.getElementById('pageTitle').textContent = title;
 
 let X1, X2, Y1, correctY2, problemString; 
 
@@ -52,15 +54,10 @@ function outputProblem(type) {
   // Call insertDateTime function when the page loads
   insertDateTime();
 
-  switch(type) {
-    case 'numeric':
-      problemString = `X and Y vary inversely. What is the value of Y if ${Y1} when X is ${X1}, what is the value of Y when X is ${X2}? Round answers to the nearest hundredth.`;
-      break;
-
-    case 'verbal':
-      problemString = `Current and resistance vary inversely. If the resistance is ${Y1} Amps when the current is ${X1} Ohms, what is the current (in Amps) when the resistance is ${X2} Ohms? Round answers to the nearest hundredth.`;
-      break;
-  }
+  problemString = problemTemplates[type]
+    .replace('{X1}', X1)
+    .replace('{X2}', X2)
+    .replace('{Y1}', Y1);
 
   problem.innerHTML = problemString
 
@@ -75,69 +72,124 @@ function calculateSolution() {
 function checkSolution() {
   calculateSolution();
 
-  let inputY2 = parseFloat(yInput.value).toFixed(2);
+  let checkInputY2 = parseFloat(input.value).toFixed(2);
   
-  if(inputY2 == correctY2) {
+  if(checkInputY2 == correctY2) {
     correct();
   }
   else {
     incorrect();
   }
+
+  // Hide the answer-container
+  document.getElementById('answer-container').style.display = 'none';
+  // Hide the getProblem button
+  getProbBtn.style.display = 'none';
+
+  document.getElementById('userSolution').textContent = `Your Solution:`;
+  let inputValueSpan = document.createElement('span');
+  inputValueSpan.textContent = input.value;
+  inputValueSpan.style.fontSize = '1.4rem';
+  inputValueSpan.style.display = 'block';
+  inputValueSpan.style.textAlign = 'center';
+  document.getElementById('userSolution').appendChild(inputValueSpan);
+
+  // Show the solution container
+  solutionContainer.style.display = 'block';
 }
 
 function showSolution(type) {
   calculateSolution();
 
-  problem.innerHTML = `\
-  ${problemString}<br>\
-  <br>
-  X and Y vary inversely.<br>\
-  X*Y = k, the constant of variation.<br>\
-  k = ${X1} * ${Y1}<br>\
-  k = ${X1 * Y1}<br>\
-  <br>\
-  X2 * Y2 = k<br>\
-  Since X2 = ${X2}<br>\
-  ${X2} * Y2 = ${X1 * Y1}<br>\
-  Y2 = ${X1 * Y1} / ${X2}<br>\
-  Y2 = ${correctY2}<br>\
-  `;
-  console.log(`${textContainer.style.height}`)
+  // Hide the answer-container
+  document.getElementById('answer-container').style.display = 'none';
+  // Hide the getProblem button
+  getProbBtn.style.display = 'none';
+
+  let solutionString = solutionTemplate
+  .replace(/{problemString}/g, problemString)
+  .replace(/{X1}/g, X1)
+  .replace(/{X2}/g, X2)
+  .replace(/{Y1}/g, Y1)
+  .replace(/{correctY2}/g, correctY2)
+  .replace(/{k}/g, X1 * Y1);
+
+  // Set the innerHTML of the problem element to the solution HTML
+  problem.innerHTML = solutionString;
+
   // Adjust the height of the textContainer to fit the content
   adjustContainerHeight();
-  console.log(`${textContainer.style.height}`)
+  // Get the problem element
+  let textElement = document.getElementById('problem');
+
+  // Get the computed height of the problem element
+  let textHeight = textElement.scrollHeight + 175;
+
+  // Set the height of the textContainer to the computed height of the problem element
+  textContainer.style.height = `${textHeight}px`;
 }
 
 function adjustContainerHeight() {
   // Get the problem element
   let textElement = document.getElementById('problem');
-  console.log(`textElement.scrollHeight: ${textElement.scrollHeight}`)
+
   // Get the computed height of the problem element
   let textHeight = textElement.scrollHeight + 350;
 
   // Set the height of the textContainer to the computed height of the problem element
   textContainer.style.height = `${textHeight}px`;
-  console.log(`textContainer.style.height: ${textContainer.style.height}`)
 }
 
 function determineProblemType() {
-  let prob_type =  problemType[Math.floor(Math.random()*problemType.length)];
+  let prob_type =  problemTypes[Math.floor(Math.random()*problemTypes.length)];
   getProbBtn.innerText = 'Submit Answer';
 
   return prob_type;
 }
 
 function runProblem() {
-  console.log('runProblem() called');
-  prob_type = determineProblemType();
+  let prob_type = determineProblemType();
   
+  // Clear text box
+  document.getElementById('input').value = "";
+
   outputProblem(prob_type);
 
   changeEventListener(checkSolution);
 }
 
 getProbBtn.addEventListener('click', runProblem);
-newProbBtn.addEventListener('click', runProblem);
+
+newProbBtn.addEventListener('click', function() {
+  // Hide solutionContainer
+  solutionContainer.style.display = 'none';
+
+  // Show answer-container
+  document.getElementById('answer-container').style.display = 'flex';
+  // Show the "Submit Answer" button
+  document.getElementById('getProblem').style.display = 'block';
+  // Show the question mark
+  icon.setAttribute('class', 'fa-solid fa-question');
+  icon.style.color = '';
+
+  // Call runProblem to generate a new problem
+  runProblem();
+});
+
+// Get the input element
+let input = document.getElementById('input');
+
+// Listen for keydown event on the input element
+input.addEventListener('keydown', function(event) {
+  // Check if the pressed key is Enter (keyCode 13)
+  if (event.key === 'Enter') {
+    // Prevent the default action of the Enter key (form submission)
+    event.preventDefault();
+    // Programmatically trigger a click event on the "Submit Answer" button
+    document.getElementById('getProblem').click();
+  }
+});
+
 solutionBtn.addEventListener('click', showSolution);
 
 // Navigate to skillsMenu.html when back button is clicked
@@ -149,5 +201,20 @@ function changeEventListener(funcName) {
   getProbBtn.removeEventListener('click', runProblem);
   getProbBtn.addEventListener('click', funcName);
 }
+
+// Get the input element
+input = document.getElementById('input');
+
+// Listen for keydown event on the input element
+input.addEventListener('keydown', function(event) {
+  // Check if the pressed key is Enter (keyCode 13)
+  if (event.key === 'Enter') {
+    // Prevent the default action of the Enter key (form submission)
+    event.preventDefault();
+    // Programmatically trigger a click event on the "Submit Answer" button
+    document.getElementById('getProblem').click();
+  }
+});
+
 
 runProblem()

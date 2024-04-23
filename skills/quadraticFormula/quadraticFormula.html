@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang='en'>
   <head>
-    <meta charset='UTF-8'>
-    <meta name=''viewport' content=''width=device-width, initial-scale=1.0'>
-    <!-- <title>Inverse Varation</title> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="pageTitle">Loading...</title>
     <link rel='stylesheet' href='../../skillStyles.css'>
-
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
   </head>
 
   <body>
@@ -40,8 +41,11 @@
       </div>
 
       <div id='answer-container'>
-        <span id='solution'>Answer: &nbsp</span>
-        <input id='input' class='latex-input'>
+        <span class="bracket">{</span>
+        <input id="solution1" class="latex-input">
+        <span class="bracket">,</span>
+        <input id="solution2" class="latex-input">
+        <span class="bracket">}</span>
       </div>
 
       <div id='answerButton'>
@@ -56,20 +60,6 @@
 
     <script src='https://kit.fontawesome.com/7d5b8cf8a9.js' crossorigin='anonymous'></script>
     <script src="problemData.js" type="module"></script>
-    <script src='inverseVariation.js' type="module" defer></script>
-
-    <!-- <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const answerInput = document.getElementById('input');
-        
-        answerInput.addEventListener('input', function() {
-          const latexCode = answerInput.value;
-          const renderedLatex = document.getElementById('rendered-latex');
-          
-          renderedLatex.innerHTML = '\\(' + latexCode + '\\)';
-          MathJax.Hub.Queue(["Typeset", MathJax.Hub, renderedLatex]);
-        });
-      });
-    </script> -->
+    <script src='quadraticFormula.js' type="module" defer></script>
   </body>
 </html>
