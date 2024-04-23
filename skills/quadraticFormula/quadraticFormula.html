@@ -22,7 +22,7 @@
     <div id = 'buttonContainer'>
       <button id='back' class = "white-button">< Back</button>
       <button id='new-problem' class = "blue-button">New Problem</button>
-      <button id='solution' class = "blue-button">Solution</button>
+      <button id='solution' class = "blue-button">Show Solution</button>
     </div>
 
     <div id='textContainer'>
@@ -34,11 +34,11 @@
         <span id='datetime' style='font-family: "Comic Neue", sans-serif;'></span>
       </div>
 
-      <span id='problem'>Problem will appear here...</span>
-
       <div id='indicator'>
         <i class='fa-solid fa-question' id='question-mark' aria-hidden='true'></i>
       </div>
+
+      <span id='problem'>Problem will appear here...</span>
 
       <div id='answer-container'>
         <span class="bracket">{</span>
@@ -46,16 +46,14 @@
         <span class="bracket">,</span>
         <input id="solution2" class="latex-input">
         <span class="bracket">}</span>
-      </div>
-
-      <div id='answerButton'>
         <button id='getProblem'>Get Problem</button>
       </div>
 
-      <div id="solutionContainer" style="display: none;">
+        <div id="solutionContainer" style="display: none;">
         <hr class="divider">
         <span id="userSolution">Your Solution: </span>
       </div>
+
     </div>
 
     <script src='https://kit.fontawesome.com/7d5b8cf8a9.js' crossorigin='anonymous'></script>

@@ -13,6 +13,7 @@ const problemTemplates = {
 
 const solutionTemplate = 
   `
+  <br>
   {problemString}<br>\
   <br>
   <div class="centered-content">

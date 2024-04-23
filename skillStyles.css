@@ -99,7 +99,8 @@ span#problem{
     width: calc(20vw);
   }
   #answerButton {
-    left: calc(20vw + 110px);
+    left: calc(15vw);
+    margin-bottom: 80px;
   }
 }
 
@@ -115,16 +116,18 @@ span#problem{
   justify-content: flex-start;
   align-items: center;
   padding-left: 5%;
+  padding-top: 12px;
+  margin-bottom: 20px;
 }
 
 #answerButton{
   position: absolute;
-  top: 70%;
+  top: 80.5%;
   bottom: 5%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding-left: 5%;
+  padding-left: 3%;
 }
 
 #input{
@@ -153,17 +156,15 @@ span#problem{
   padding-left: 10px;
 }
 
-#solutionContainer{
+#solutionContainer {
   position: absolute;
-  top: 70%;
-  bottom: 5%;
-  left: 4%;
-  right: 4%;
-  width: 75%;
-  display: flex;
-  justify-content: flex-start;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   align-items: center;
-  padding-left: 5%;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .divider {
@@ -207,6 +208,7 @@ span#problem{
   border-radius: 4px;
   transition: 0.1s;
   margin-left: 7px;
+  margin-bottom: 10px;
 }
 
 #getProblem:hover{
@@ -238,6 +240,7 @@ span.parenthesis, #comma{
   left: 50%;
   width: 75%;
   transform: translate(-50%);
+  margin-bottom: 20px;
 }
 
 #indicator{

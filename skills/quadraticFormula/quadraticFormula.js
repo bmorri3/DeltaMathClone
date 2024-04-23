@@ -8,7 +8,8 @@ let icon = document.getElementById('question-mark');
 document.getElementById('assignment_name').textContent = assignmentName;
 document.getElementById('pageTitle').textContent = title;
 
-let a, b, c, problemString, answer1, answer2; 
+let a, b, c, problemString, answer1, answer2;
+let showingSolution = false;
 
 getProbBtn.addEventListener('click', runProblem);
 
@@ -24,6 +25,9 @@ newProbBtn.addEventListener('click', function() {
   // Show the question mark.
   icon.setAttribute('class', 'fa-solid fa-question');
   icon.style.color = '';
+
+  solutionBtn.textContent = 'Show Solution';
+  showingSolution = false;
 
   // Call runProblem to generate a new problem
   runProblem();
@@ -191,7 +195,7 @@ function outputProblem(type) {
 
   // Call insertDateTime function when the page loads
   insertDateTime();
-  console.log("a,b,c:", a,b,c)
+
   let bString;
   if (b < -1) {
     bString = b;
@@ -214,7 +218,7 @@ function outputProblem(type) {
     MathJax.typeset();
   });
 
-  adjustContainerHeight();
+  adjustContainerHeight(350);
 }
 
 function calculateSolution() {
@@ -265,44 +269,72 @@ function checkSolution() {
   }
 
   // Show the solution and user solution
+  
   showSolution(level)
   solutionContainer.style.display = 'block';
 }
 
 function showSolution(type) {
   let answers = calculateSolution();
+  if (!showingSolution) {
+    // Hide the answer-container
+    document.getElementById('answer-container').style.display = 'none';
+    // Hide the getProblem button
+    getProbBtn.style.display = 'none';
+    console.log("HERE is b:", b)
 
-  // Hide the answer-container
-  document.getElementById('answer-container').style.display = 'none';
-  // Hide the getProblem button
-  getProbBtn.style.display = 'none';
 
-  let solutionString = solutionTemplate
-  .replace(/{a}/g, a)
-  .replace(/{b}/g, b)
-  .replace(/{c}/g, c)
-  .replace(/{answer1}/g, answers[0])
-  .replace(/{answer2}/g, answers[1])
-  .replace(/{problemString}/g, problemString);
-  console.log('a, b, c:', a, b, c)
+    let bString;
+    if (b < -1) {
+      console.log("HERE HERE is b:", b)
+      bString = b;
+    } else if (b === -1) {
+      bString = "-";
+    } else if (b === 1) {
+      bString = "+";
+    } else if (b > 1) {
+      bString = "+" + b;
+    }
+    
+    let solutionString = solutionTemplate
+    .replace(/{a}/, a === 1 ? "" : a)
+    .replace(/{b}/, bString)
+    .replace(/{c}/, c< 0 ? c: "+" + c)
+    .replace(/{a}/g, a)
+    .replace(/{b}/g, b)
+    .replace(/{c}/g, c)
+    .replace(/{answer1}/g, answers[0])
+    .replace(/{answer2}/g, answers[1])
+    .replace(/{problemString}/g, problemString);
+    console.log('a, b, c:', a, b, c);
 
-  // Set the innerHTML of the problem element to the solution HTML
-  problem.innerHTML = solutionString;
+    // Set the innerHTML of the problem element to the solution HTML
+    problem.innerHTML = solutionString;
 
-  MathJax.typesetPromise().then(() => {
-    MathJax.typeset();
-  });
+    // Change button text to "Show Problem"
+    solutionBtn.textContent = 'Show Problem';
+    showingSolution = true;
 
-  // Adjust the height of the textContainer to fit the content
-  adjustContainerHeight();
-  // Get the problem element
-  let textElement = document.getElementById('problem');
+    MathJax.typesetPromise().then(() => {
+      MathJax.typeset();
 
-  // Get the computed height of the problem element
-  let textHeight = textElement.scrollHeight + 175;
+    adjustContainerHeight(175);
+    });
+  } else {
+    // Set the innerHTML of the problem element back to the problem string
+    problem.innerHTML = problemString;
 
-  // Set the height of the textContainer to the computed height of the problem element
-  textContainer.style.height = `${textHeight}px`;
+    // Show the answer-container
+    document.getElementById('answer-container').style.display = 'flex';    
+    // Show the getProblem button
+    getProbBtn.style.display = 'block';
+    // Hide the solutionContainer
+    solutionContainer.style.display = 'none';
+
+    // Change button text to "Show Solution" 
+    solutionBtn.textContent = 'Show Solution';
+    showingSolution = false;
+  }    
 }
 
 
@@ -362,12 +394,12 @@ export function insertDateTime() {
   document.getElementById('datetime').textContent = formattedDate;
 }
 
-export function adjustContainerHeight() {
+export function adjustContainerHeight(amt) {
   // Get the problem element
   let textElement = document.getElementById('problem');
 
   // Get the computed height of the problem element
-  let textHeight = textElement.scrollHeight + 350;
+  let textHeight = textElement.scrollHeight + amt;
 
   // Set the height of the textContainer to the computed height of the problem element
   textContainer.style.height = `${textHeight}px`;

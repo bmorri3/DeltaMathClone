@@ -3,7 +3,6 @@
   <head>
     <meta charset='UTF-8'>
     <meta name=''viewport' content=''width=device-width, initial-scale=1.0'>
-    <!-- <title>Inverse Varation</title> -->
     <title id="pageTitle">Loading...</title>
     <link rel='stylesheet' href='../../skillStyles.css'>
 
@@ -21,7 +20,7 @@
     <div id = 'buttonContainer'>
       <button id='back' class = "white-button">< Back</button>
       <button id='new-problem' class = "blue-button">New Problem</button>
-      <button id='solution' class = "blue-button">Solution</button>
+      <button id='solution' class = "blue-button">Show Solution</button>
     </div>
 
     <div id='textContainer'>
@@ -42,9 +41,6 @@
       <div id='answer-container'>
         <span id='solution'>Answer: &nbsp</span>
         <input id='input' class='latex-input'>
-      </div>
-
-      <div id='answerButton'>
         <button id='getProblem'>Get Problem</button>
       </div>
 
@@ -57,19 +53,5 @@
     <script src='https://kit.fontawesome.com/7d5b8cf8a9.js' crossorigin='anonymous'></script>
     <script src="problemData.js" type="module"></script>
     <script src='inverseVariation.js' type="module" defer></script>
-
-    <!-- <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const answerInput = document.getElementById('input');
-        
-        answerInput.addEventListener('input', function() {
-          const latexCode = answerInput.value;
-          const renderedLatex = document.getElementById('rendered-latex');
-          
-          renderedLatex.innerHTML = '\\(' + latexCode + '\\)';
-          MathJax.Hub.Queue(["Typeset", MathJax.Hub, renderedLatex]);
-        });
-      });
-    </script> -->
   </body>
 </html>

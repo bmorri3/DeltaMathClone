@@ -8,7 +8,8 @@ let icon = document.getElementById('question-mark');
 document.getElementById('assignment_name').textContent = assignmentName;
 document.getElementById('pageTitle').textContent = title;
 
-let X1, X2, Y1, correctY2, problemString; 
+let X1, X2, Y1, correctY2, problemString;
+let showingSolution = false;
 
 function random(max=200) {
   return Math.floor(Math.random()*max) + 1;
@@ -61,7 +62,7 @@ function outputProblem(type) {
 
   problem.innerHTML = problemString
 
-  adjustContainerHeight();
+  adjustContainerHeight(350);
 }
 
 function calculateSolution() {
@@ -81,6 +82,8 @@ function checkSolution() {
     incorrect();
   }
 
+  showSolution();
+
   // Hide the answer-container
   document.getElementById('answer-container').style.display = 'none';
   // Hide the getProblem button
@@ -96,45 +99,63 @@ function checkSolution() {
 
   // Show the solution container
   solutionContainer.style.display = 'block';
+
+  adjustContainerHeight(200);
 }
 
 function showSolution(type) {
   calculateSolution();
 
-  // Hide the answer-container
-  document.getElementById('answer-container').style.display = 'none';
-  // Hide the getProblem button
-  getProbBtn.style.display = 'none';
+  if (!showingSolution) {
+    // Hide the answer-container
+    document.getElementById('answer-container').style.display = 'none';
+    // Hide the getProblem button
+    getProbBtn.style.display = 'none';
 
-  let solutionString = solutionTemplate
-  .replace(/{problemString}/g, problemString)
-  .replace(/{X1}/g, X1)
-  .replace(/{X2}/g, X2)
-  .replace(/{Y1}/g, Y1)
-  .replace(/{correctY2}/g, correctY2)
-  .replace(/{k}/g, X1 * Y1);
+    let solutionString = solutionTemplate
+      .replace(/{problemString}/g, problemString)
+      .replace(/{X1}/g, X1)
+      .replace(/{X2}/g, X2)
+      .replace(/{Y1}/g, Y1)
+      .replace(/{correctY2}/g, correctY2)
+      .replace(/{k}/g, X1 * Y1);
 
-  // Set the innerHTML of the problem element to the solution HTML
-  problem.innerHTML = solutionString;
+    // Set the innerHTML of the problem element to the solution HTML
+    problem.innerHTML = solutionString;
 
-  // Adjust the height of the textContainer to fit the content
-  adjustContainerHeight();
-  // Get the problem element
-  let textElement = document.getElementById('problem');
+    // Change button text to "Show Problem"
+    solutionBtn.textContent = 'Show Problem';
+    showingSolution = true;
 
-  // Get the computed height of the problem element
-  let textHeight = textElement.scrollHeight + 175;
+    adjustContainerHeight(175)
+  } else {
+    // Set the innerHTML of the problem element back to the problem string
+    problem.innerHTML = problemString;
 
-  // Set the height of the textContainer to the computed height of the problem element
-  textContainer.style.height = `${textHeight}px`;
+    // Show the answer-container
+    document.getElementById('answer-container').style.display = 'flex';    
+    // Show the getProblem button
+    getProbBtn.style.display = 'block';
+    // Hide the solutionContainer
+    solutionContainer.style.display = 'none';
+
+    // Change button text to "Show Solution" 
+    solutionBtn.textContent = 'Show Solution';
+    showingSolution = false;
+
+    MathJax.typesetPromise().then(() => {
+      MathJax.typeset();
+    });
+  }
 }
 
-function adjustContainerHeight() {
+
+function adjustContainerHeight(amt) {
   // Get the problem element
   let textElement = document.getElementById('problem');
 
   // Get the computed height of the problem element
-  let textHeight = textElement.scrollHeight + 350;
+  let textHeight = textElement.scrollHeight + amt;
 
   // Set the height of the textContainer to the computed height of the problem element
   textContainer.style.height = `${textHeight}px`;
@@ -172,6 +193,8 @@ newProbBtn.addEventListener('click', function() {
   icon.setAttribute('class', 'fa-solid fa-question');
   icon.style.color = '';
 
+  solutionBtn.textContent = 'Show Solution';
+  showingSolution = false;
   // Call runProblem to generate a new problem
   runProblem();
 });
