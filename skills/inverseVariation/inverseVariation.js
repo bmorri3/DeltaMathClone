@@ -75,9 +75,11 @@ function checkSolution() {
   let checkInputY2 = parseFloat(input.value).toFixed(2);
   
   if(checkInputY2 == correctY2) {
+    console.log("HERE");
     correct();
   }
   else {
+    console.log("HERE HERE");
     incorrect();
   }
 
