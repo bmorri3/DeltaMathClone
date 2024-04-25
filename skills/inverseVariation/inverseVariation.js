@@ -91,16 +91,20 @@ function checkSolution() {
 
   document.getElementById('userSolution').textContent = `Your Solution:`;
   let inputValueSpan = document.createElement('span');
-  inputValueSpan.textContent = input.value;
-  inputValueSpan.style.fontSize = '1.4rem';
+  inputValueSpan.textContent = "$$" + input.value + "$$";
+  inputValueSpan.style.fontSize = '1.15rem';
   inputValueSpan.style.display = 'block';
   inputValueSpan.style.textAlign = 'center';
   document.getElementById('userSolution').appendChild(inputValueSpan);
 
-  // Show the solution container
-  solutionContainer.style.display = 'block';
+  // Render the LaTeX using MathJax
+  MathJax.typesetPromise([inputValueSpan]).then(() => {
+    MathJax.typeset([inputValueSpan]);
+  });
 
-  adjustContainerHeight(200);
+  // Show the solution and user solution    
+  solutionContainer.style.display = 'block';
+  adjustContainerHeight(250);
 }
 
 function showSolution(type) {
@@ -127,7 +131,10 @@ function showSolution(type) {
     solutionBtn.textContent = 'Show Problem';
     showingSolution = true;
 
-    adjustContainerHeight(175)
+    MathJax.typesetPromise().then(() => {
+      MathJax.typeset();        
+    });
+    adjustContainerHeight(175);  
   } else {
     // Set the innerHTML of the problem element back to the problem string
     problem.innerHTML = problemString;
@@ -143,9 +150,10 @@ function showSolution(type) {
     solutionBtn.textContent = 'Show Solution';
     showingSolution = false;
 
-    MathJax.typesetPromise().then(() => {
-      MathJax.typeset();
-    });
+    // MathJax.typesetPromise().then(() => {
+    //   MathJax.typeset();
+    // });
+    adjustContainerHeight(350);
   }
 }
 
@@ -202,17 +210,6 @@ newProbBtn.addEventListener('click', function() {
 // Get the input element
 let input = document.getElementById('input');
 
-// Listen for keydown event on the input element
-input.addEventListener('keydown', function(event) {
-  // Check if the pressed key is Enter (keyCode 13)
-  if (event.key === 'Enter') {
-    // Prevent the default action of the Enter key (form submission)
-    event.preventDefault();
-    // Programmatically trigger a click event on the "Submit Answer" button
-    document.getElementById('getProblem').click();
-  }
-});
-
 solutionBtn.addEventListener('click', showSolution);
 
 // Navigate to skillsMenu.html when back button is clicked
@@ -235,7 +232,8 @@ input.addEventListener('keydown', function(event) {
     // Prevent the default action of the Enter key (form submission)
     event.preventDefault();
     // Programmatically trigger a click event on the "Submit Answer" button
-    document.getElementById('getProblem').click();
+    // document.getElementById('getProblem').click();
+    checkSolution();
   }
 });
 

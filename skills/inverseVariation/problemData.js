@@ -14,22 +14,21 @@ const problemTemplates = {
 const solutionTemplate = 
   `
   <br>
-  {problemString}<br>\
+  {problemString}<br>
   <br>
   <div class="centered-content">
-    X and Y vary inversely.<br>\
-    X*Y = k, the constant of variation.<br>\
-    k = {X1} * {Y1}<br>\
-    k = {k}<br>\
-    <br>\
-    X2 * Y2 = k<br>\
-    Since X2 = {X2}<br>\
-    {X2} * Y2 = {k}<br>\
-    Y2 = {k} / {X2}<br>\
-    Y2 = {correctY2}<br>\
-    <br>\
-    Final Answer:<br>
-    {correctY2}
+    X and Y vary inversely.<br>
+    X*Y = k, the constant of variation.<br>
+    $$ k = {X1} * {Y1} $$
+    $$k = {k} $$
+    $$ X2 * Y2 = k $$
+    $$ X2 = {X2} $$
+    $$ {X2} * Y2 = {k} $$
+    $$ Y2 = {k} / {X2} $$
+    $$ Y2 = {correctY2} $$
+    <br>
+    Final Answer:
+    $$ {correctY2} $$
   </div>
   `;
 

@@ -33,8 +33,44 @@
   padding-left: 5%;
 }
 
+.sixth-button {
+  background: #21abcd;
+  color: White;
+  padding: 13px 10px;
+  border-radius: 4px;
+  border: 0.5px solid rgb(143, 143, 143);
+  width: 100%;
+  margin-bottom: -7px;
+  text-align: left;
+  font-size: 16px;
+}
+
+.sixth-button::after {
+  content: "6";
+  float: right;
+  margin-left: 10px;
+}
+
+.math1-button {
+  background: #2c3e50;
+  color: White;
+  padding: 13px 10px;
+  border-radius: 4px;
+  border: 0.5px solid rgb(143, 143, 143);
+  width: 100%;
+  margin-bottom: -7px;
+  text-align: left;
+  font-size: 16px;
+}
+
+.math1-button::after {
+  content: "M1";
+  float: right;
+  margin-left: 10px;
+}
+
 .math2-button {
-  background: green;
+  background: #239b56;
   color: White;
   padding: 13px 10px;
   border-radius: 4px;
@@ -52,7 +88,7 @@
 }
 
 .math3-button {
-  background: orange;
+  background: #F39C12;
   color: White;
   padding: 15px 10px;
   border-radius: 4px;
@@ -69,7 +105,7 @@
 }
 
 .precal-button {
-  background: red;
+  background: #a93226;
   color: White;
   padding: 15px 10px;
   border-radius: 4px;

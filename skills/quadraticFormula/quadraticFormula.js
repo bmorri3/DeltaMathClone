@@ -235,26 +235,10 @@
   }
 
   function checkSolution() {
-    // Hide the answer-container
-    document.getElementById('answer-container').style.display = 'none';
-    // Hide the getProblem button
-    getProbBtn.style.display = 'none';
-
-    document.getElementById('userSolution').textContent = `Your Solution:`;
-    let inputValueSpan = document.createElement('span');
-    inputValueSpan.textContent = "{" + solution1.value + "," + solution2.value + "}";
-    inputValueSpan.style.fontSize = '1.4rem';
-    inputValueSpan.style.display = 'block';
-    inputValueSpan.style.textAlign = 'center';
-    document.getElementById('userSolution').appendChild(inputValueSpan);
-
     let answers = calculateSolution();
     answer1 = answers[0]
     answer2 = answers[1]
     let solutions = [solution1.value, solution2.value].sort()
-    console.log("answers, solutions:", answers, solutions)
-    console.log("answers[0], solutions[0], answers==solutions:", answers[0], solutions[0], answers[0] == solutions[0])
-    console.log("answers[1], solutions[1], answers==solutions:", answers[1], solutions[1], answers[1] == solutions[1])
 
     let parsedAnswers = answers.map(parseFloat);
     let parsedSolutions = solutions.map(parseFloat);
@@ -268,25 +252,40 @@
       incorrect();
     }
 
-    // Show the solution and user solution
+    // Hide the answer-container
+    document.getElementById('answer-container').style.display = 'none';
+    // Hide the getProblem button
+    getProbBtn.style.display = 'none';
+
+    document.getElementById('userSolution').textContent = `Your Solution:`;
+    let inputValueSpan = document.createElement('span');
+    inputValueSpan.textContent = "$$" + "{" + solution1.value + "," + solution2.value + "}" + "$$";
+    inputValueSpan.style.fontSize = '1.2rem';
+    inputValueSpan.style.display = 'block';
+    inputValueSpan.style.textAlign = 'center';
+    document.getElementById('userSolution').appendChild(inputValueSpan);
     
+    // Render the LaTeX using MathJax
+    MathJax.typesetPromise([inputValueSpan]).then(() => {
+      MathJax.typeset([inputValueSpan]);
+    });
+
+    // Show the solution and user solution    
     showSolution(level)
     solutionContainer.style.display = 'block';
   }
 
   function showSolution(type) {
     let answers = calculateSolution();
+
     if (!showingSolution) {
       // Hide the answer-container
       document.getElementById('answer-container').style.display = 'none';
       // Hide the getProblem button
       getProbBtn.style.display = 'none';
-      console.log("HERE is b:", b)
-
 
       let bString;
       if (b < -1) {
-        console.log("HERE HERE is b:", b)
         bString = b;
       } else if (b === -1) {
         bString = "-";
@@ -316,10 +315,9 @@
       showingSolution = true;
 
       MathJax.typesetPromise().then(() => {
-        MathJax.typeset();
-
-      adjustContainerHeight(175);
+        MathJax.typeset();        
       });
+      adjustContainerHeight(175);
     } else {
       // Set the innerHTML of the problem element back to the problem string
       problem.innerHTML = problemString;
@@ -337,9 +335,9 @@
 
       // Render the LaTeX in the problem string
       MathJax.typesetPromise().then(() => {
-        MathJax.typeset();
-        adjustContainerHeight(350);
+        MathJax.typeset();        
       });
+      adjustContainerHeight(350);
     }    
   }
 
@@ -356,7 +354,7 @@
 
   // Listen for keydown event on the input element
   solution2.addEventListener('keydown', function(event) {
-    // Check if the pressed key is Enter (keyCode 13)
+    // Check if the pressed key is Enter
     if (event.key === 'Enter') {
       // Prevent the default action of the Enter key (form submission)
       event.preventDefault();
@@ -365,42 +363,42 @@
     }
   });
 
-  export function random(max=200) {
+  function random(max=200) {
     return Math.floor(Math.random()*max) + 1;
   }
 
-  export function toggleIconCorrect() {
+  function toggleIconCorrect() {
     icon.style.color = 'rgb(64, 222, 28)';
   }
 
-  export function toggleIconIncorrect() {
+  function toggleIconIncorrect() {
     icon.style.color = 'rgb(250, 31, 19)';
   }
 
-  export function correct() {
+  function correct() {
     icon.setAttribute('class', 'fa-solid fa-check');
     toggleIconCorrect();
   }
 
-  export function incorrect(){
+  function incorrect(){
     icon.setAttribute('class', 'fa-solid fa-xmark');
     toggleIconIncorrect();
   }
 
-  export function refresh() {
+  function refresh() {
     setTimeout(() => {
       location.reload();
     }, 1500)
   }
 
-  export function insertDateTime() {
+  function insertDateTime() {
     const currentDate = new Date();
     const options = { month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
     const formattedDate = currentDate.toLocaleString('en-US', options);
     document.getElementById('datetime').textContent = formattedDate;
   }
 
-  export function adjustContainerHeight(amt) {
+  function adjustContainerHeight(amt) {
     // Get the problem element
     let textElement = document.getElementById('problem');
 

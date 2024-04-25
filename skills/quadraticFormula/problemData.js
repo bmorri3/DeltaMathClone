@@ -9,7 +9,7 @@ const problemTypes = [1, 2, 3];
 const problemTemplates = 
   `
   Use the quadratic formula to solve. Express your answer in simplest form. Round to the neares hundredth if necessary.<br>\
-  <br>\
+  <br>
   <div class="centered-content">$$\{a}x^2 {b}x {c}$$</div>
   `;
 
@@ -17,7 +17,7 @@ const solutionTemplate =
   `
   <br>
   Use the quadratic formula to solve. Express your answer in simplest form. Round to the neares hundredth if necessary.<br>\
-  <br>\
+  <br>
   <div class="centered-content">$$\{a}x^2 {b}x {c}$$</div><br>
   <div class="centered-content">
     $$x=\\frac{{-b \\pm \\sqrt{{b^2 + 4ac}}}}{{2a}}$$

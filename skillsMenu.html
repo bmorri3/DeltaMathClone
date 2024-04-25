@@ -3,8 +3,9 @@
   <head>
     <meta charset='UTF-8'>
     <meta name=''viewport' content=''width=device-width, initial-scale=1.0'>
-    <title>Skills Menu</title>
-    <link rel='stylesheet' href='skillsMenu.css'>
+    <title>DeltaMathClone</title>
+    <link rel="icon" type="image/x-icon" href="DMCap.ico">
+    <link rel='stylesheet'  href='skillsMenu.css'>
 
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap">
@@ -20,10 +21,15 @@
   <div id='button-container'>
     <button id='back' class="white-button">< Back</button>
     <div id='skills' style='display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;'>
-      <button id='inverseVariation' class="math2-button" onclick="goToPage('skills/inverseVariation.html')">Inverse Variation</button>
-      <button id='quadraticFormula1' class="math2-button" onclick="goToPage('skills/quadraticFormula.html')">Quadratic Formula (Level 1)</button>
-      <button id='quadraticFormula2' class="math2-button" onclick="goToPage('skills/quadraticFormula.html')">Quadratic Formula (Level 2)</button>
-      <button id='quadraticFormula3' class="math2-button" onclick="goToPage('skills/quadraticFormula.html')">Quadratic Formula (Level 3)</button>
+      <button id='subtraction1' class="sixth-button" onclick="goToPage('skills/subtraction/subtraction.html?level=1')">Subtraction (Level 1)</button>
+      <button id='subtraction2' class="sixth-button" onclick="goToPage('skills/subtraction/subtraction.html?level=2')">Subtraction (Level 2)</button>
+      <button id='subtraction3' class="sixth-button" onclick="goToPage('skills/subtraction/subtraction.html?level=3')">Subtraction (Level 3)</button>
+      <button id='pythagoreanTheorem1' class="math1-button" onclick="goToPage('skills/pythagoreanTheorem/pythagoreanTheorem.html?level=1')">Pythagorean Theorem (Level 1)</button>
+      <button id='pythagoreanTheorem2' class="math1-button" onclick="goToPage('skills/pythagoreanTheorem/pythagoreanTheorem.html?level=2')">Pythagorean Theorem (Level 2)</button>
+      <button id='inverseVariation' class="math2-button" onclick="goToPage('skills/inverseVariation/inverseVariation.html')">Inverse Variation</button>
+      <button id='quadraticFormula1' class="math2-button" onclick="goToPage('skills/quadraticFormula/quadraticFormula.html?level=1')">Quadratic Formula (Level 1)</button>
+      <button id='quadraticFormula2' class="math2-button" onclick="goToPage('skills/quadraticFormula/quadraticFormula.html?level=2')">Quadratic Formula (Level 2)</button>
+      <button id='quadraticFormula3' class="math2-button" onclick="goToPage('skills/quadraticFormula/quadraticFormula.html?level=3')">Quadratic Formula (Level 3)</button>
     </div>
   </div>
 
