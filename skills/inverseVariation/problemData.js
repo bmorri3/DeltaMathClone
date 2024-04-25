@@ -19,12 +19,12 @@ const solutionTemplate =
   <div class="centered-content">
     X and Y vary inversely.<br>
     X*Y = k, the constant of variation.<br>
-    $$ k = {X1} * {Y1} $$
+    $$ k = {X1} \\cdot {Y1} $$
     $$k = {k} $$
-    $$ X2 * Y2 = k $$
+    $$ X2 \\cdot Y2 = k $$
     $$ X2 = {X2} $$
-    $$ {X2} * Y2 = {k} $$
-    $$ Y2 = {k} / {X2} $$
+    $$ {X2} \\cdot Y2 = {k} $$
+    $$ Y2 = {k} \\div {X2} $$
     $$ Y2 = {correctY2} $$
     <br>
     Final Answer:

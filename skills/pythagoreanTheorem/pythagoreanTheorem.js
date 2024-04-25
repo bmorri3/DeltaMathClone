@@ -6,7 +6,6 @@ let newProbBtn = document.getElementById('new-problem');
 let solutionBtn = document.getElementById('solution');
 let icon = document.getElementById('question-mark');
 document.getElementById('assignment_name').textContent = assignmentName;
-document.getElementById('pageTitle').textContent = title;
 
 let a, b, c, lengths, answer, problemString, type;
 let showingSolution = false;

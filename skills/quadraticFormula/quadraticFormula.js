@@ -6,7 +6,6 @@
   let solutionBtn = document.getElementById('solution');
   let icon = document.getElementById('question-mark');
   document.getElementById('assignment_name').textContent = assignmentName;
-  document.getElementById('pageTitle').textContent = title;
 
   let a, b, c, problemString, answer1, answer2;
   let showingSolution = false;
