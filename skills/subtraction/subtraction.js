@@ -222,10 +222,7 @@ function insertDateTime() {
 }
 
 function outputProblem() { 
-  console.log("type:", type);
-  console.log("level:", level);
   let problem = generateSubtraction(level);
-  console.log("problem:", problem);
   let numbers = problem.split("-");
   a = parseInt(numbers[0]);
   b = parseInt(numbers[1]);
@@ -236,7 +233,6 @@ function outputProblem() {
     .replace('{a}', a)
     .replace('{b}', b);
 
-  console.log("problemString:", problemString);
 
   let problemElement = document.getElementById('problem');
   problemElement.innerHTML = problemString;
@@ -245,7 +241,6 @@ function outputProblem() {
 }
 
 function calculateSolution() {
-  console.log("type:", type)
   return a - b;
 }
 
@@ -255,7 +250,6 @@ function checkSolution() {
   answer = calculateSolution();
 
   let checkInputY2 = parseFloat(input.value);
-  console.log("checkInputY2, answer:", checkInputY2, answer)
   if(checkInputY2 == answer) {
     correct();
   }
@@ -357,7 +351,6 @@ function adjustContainerHeight(amt) {
 
 function determineProblemType() {
   type =  problemTypes[Math.floor(Math.random()*problemTypes.length)];
-  console.log("type:", type)
   getProbBtn.innerText = 'Submit Answer';
 }
 
@@ -420,6 +413,5 @@ input.addEventListener('keydown', function(event) {
     checkSolution();
   }
 });
-
 
 runProblem()

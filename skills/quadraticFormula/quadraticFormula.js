@@ -244,11 +244,9 @@
     let parsedSolutions = solutions.map(parseFloat);
 
     if(parsedAnswers[0] == parsedSolutions[0] && parsedAnswers[1] == parsedSolutions[1]) {
-      console.log("CORRECT")
       correct();
     }
     else {
-      console.log("INCORRECT")
       incorrect();
     }
 
@@ -305,7 +303,6 @@
       .replace(/{answer1}/g, answers[0])
       .replace(/{answer2}/g, answers[1])
       .replace(/{problemString}/g, problemString);
-      console.log('a, b, c:', a, b, c);
 
       // Set the innerHTML of the problem element to the solution HTML
       problem.innerHTML = solutionString;
