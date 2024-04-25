@@ -6,7 +6,6 @@ let newProbBtn = document.getElementById('new-problem');
 let solutionBtn = document.getElementById('solution');
 let icon = document.getElementById('question-mark');
 document.getElementById('assignment_name').textContent = assignmentName;
-document.getElementById('pageTitle').textContent = title;
 
 let a, b, c, lengths, answer, problemString, type;
 let showingSolution = false;
@@ -240,8 +239,6 @@ function outputProblem() {
   c = getSideLength(points[2], points[0])
 
   lengths = [a, b, c].sort((a, b) => a - b)
-  console.log("lengths:", lengths)
-  console.log("lengths[0], lengths[1], lengths[2]:", lengths[0], lengths[1], lengths[2])
   // Call insertDateTime function when the page loads
   insertDateTime();
   problemString = problemTemplates[type]
@@ -255,8 +252,6 @@ function outputProblem() {
 }
 
 function calculateSolution() {
-  console.log("type:", type)
-  console.log("lengths[type-1]:", lengths[type-1])
   return lengths[type-1];
 }
 
@@ -264,7 +259,6 @@ function checkSolution() {
   answer = calculateSolution();
 
   let checkInputY2 = parseFloat(input.value).toFixed(2);
-  console.log("checkInputY2, answer:", checkInputY2, answer)
   if(checkInputY2 == answer.toFixed(2)) {
     correct();
   }
